@@ -2,12 +2,18 @@
 #include "RfkItemModel.h"
 
 RfkItemModel::RfkItemModel(QString what):
-  m_message(what), m_is_wall(false), m_is_space(false)
+  m_message(what),
+  m_is_wall(false),
+  m_is_space(false),
+  m_is_kitten(false)
 {
 }
 
 RfkItemModel::RfkItemModel():
-  m_message(""), m_is_wall(false), m_is_space(false)
+  m_message(""),
+  m_is_wall(false),
+  m_is_space(false),
+  m_is_kitten(false)
 {
 }
 

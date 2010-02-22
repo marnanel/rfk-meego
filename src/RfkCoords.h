@@ -7,6 +7,8 @@
 #include <QDataStream>
 #include <QPair>
 
+class RfkBoardModel;
+
 /**
  * Represents an (x,y) pair of Cartesian coordinates.
  */
@@ -27,7 +29,8 @@ class RfkCoords: public QPair<int,int> {
    */
   const int y();
 
-  RfkCoords move(RfkDirection whither);
+  RfkCoords move(RfkDirection whither,
+		 RfkBoardModel *board=NULL);
 
   void dump();
 };

@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "RfkCoords.h"
+#include "RfkBoardModel.h"
 
 RfkCoords::RfkCoords() {
   first = 0;
@@ -23,7 +24,8 @@ void RfkCoords::dump() {
   qDebug() << "(" << first << "," << second << ")";
 }
 
-RfkCoords RfkCoords::move(RfkDirection whither) {
+RfkCoords RfkCoords::move(RfkDirection whither,
+			  RfkBoardModel *board) {
   int newX = first;
   int newY = second;
 
