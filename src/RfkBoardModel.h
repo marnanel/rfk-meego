@@ -23,6 +23,8 @@ class RfkBoardModel: public QObject {
 
   RfkCoords robot_position();
 
+  RfkContent at(RfkCoords position);
+
  private:
   RfkDescriptions m_descriptions;
   RfkCoords m_robot;
