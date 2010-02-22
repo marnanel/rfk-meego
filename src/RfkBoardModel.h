@@ -13,6 +13,8 @@ class RfkBoardModel: public QObject {
 
   void dump();
 
+  RfkCoords robot_position();
+
  private:
   RfkDescriptions m_descriptions;
   RfkCoords m_robot;
