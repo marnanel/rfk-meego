@@ -11,6 +11,10 @@
 class RfkCoords: public QPair<int,int> {
 
  public:
+
+  RfkCoords();
+  RfkCoords(int x, int y);
+
   /**
    * Returns the X coordinate.
    */
