@@ -1,0 +1,20 @@
+#ifndef RFK_DIRECTION_H
+#define RFK_DIRECTION_H 1
+
+typedef enum _RfkDirection {
+  RFK_DIRECTION_NORTH,
+  RFK_DIRECTION_NORTHEAST,
+  RFK_DIRECTION_EAST,
+  RFK_DIRECTION_SOUTHEAST,
+  RFK_DIRECTION_SOUTH,
+  RFK_DIRECTION_SOUTHWEST,
+  RFK_DIRECTION_WEST,
+  RFK_DIRECTION_NORTHWEST,
+  RFK_DIRECTION_RANDOM,
+  RFK_DIRECTION_DEMO
+} RfkDirection;
+
+int rfk_direction_to_dx (RfkDirection d);
+int rfk_direction_to_dy (RfkDirection d);
+
+#endif
