@@ -14,6 +14,8 @@ class RfkItemModel: public QObject {
 
   QString asChar();
 
+  QString message();
+
   bool is_wall();
   bool is_space();
   bool is_kitten();

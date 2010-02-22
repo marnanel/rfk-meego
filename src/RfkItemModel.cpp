@@ -56,3 +56,7 @@ void RfkItemModel::set_is_space(bool whether) {
 void RfkItemModel::set_is_kitten(bool whether) {
   m_is_kitten = whether;
 }
+
+QString RfkItemModel::message() {
+  return m_message;
+}
