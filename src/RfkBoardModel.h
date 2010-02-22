@@ -19,12 +19,9 @@ class RfkBoardModel: public QObject {
   RfkItemModel* at(RfkCoords position);
 
  private:
-  RfkDescriptions m_descriptions;
   RfkCoords m_robot;
-  RfkCoords m_kitten;
   RfkItemModel *m_wall;
   RfkItemModel *m_space;
-  QList<RfkItemModel*> m_items;
   QHash<RfkCoords, RfkItemModel*> m_layout;
 };
 

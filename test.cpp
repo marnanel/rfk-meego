@@ -21,9 +21,14 @@ int main(int argc, char *argv[])
     QString line;
 
     for (int x=-2; x<35; x++) {
-      RfkItemModel *something = board.at(RfkCoords(x, y));
+      RfkCoords position(x, y);
 
-      line += something->asChar();
+      if (board.robot_position() == position) {
+	line += "#";
+      } else {
+	RfkItemModel *something = board.at(position);
+	line += something->asChar();
+      }
     }
 
     qDebug() << line;
