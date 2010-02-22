@@ -7,6 +7,30 @@ RfkController::RfkController() {
 
   qDebug() << "Board created:";
 
+  this->dump_board();
+
+}
+
+void RfkController::move(RfkDirection direction) {
+  qDebug () << "Move.";
+
+  RfkCoords robot = m_board.robot_position();
+  RfkCoords entered = robot.move(direction, &m_board);
+  RfkItemModel *touched = m_board.at(entered);
+
+  if (touched->is_wall()) {
+    /* nothing */
+  } else if (touched->is_space()) {
+    m_board.move_robot(entered);
+  } else {
+    qDebug() << touched->message();
+  }
+
+  this->dump_board();
+}
+
+/* temporary */
+void RfkController::dump_board() {
   for (int y=-2; y<20; y++) {
     QString line;
 
@@ -23,5 +47,4 @@ RfkController::RfkController() {
 
     qDebug() << line;
   }
-
 }
