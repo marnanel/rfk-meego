@@ -1,6 +1,8 @@
 #ifndef RFK_COORDS_H
 #define RFK_COORDS_H 1
 
+#include "RfkDirection.h"
+
 #include <QObject>
 #include <QDataStream>
 #include <QPair>
@@ -25,7 +27,7 @@ class RfkCoords: public QPair<int,int> {
    */
   const int y();
 
-  uint qHash();
+  RfkCoords move(RfkDirection whither);
 
   void dump();
 };

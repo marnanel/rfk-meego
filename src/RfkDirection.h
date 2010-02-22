@@ -14,7 +14,4 @@ typedef enum _RfkDirection {
   RFK_DIRECTION_DEMO
 } RfkDirection;
 
-int rfk_direction_to_dx (RfkDirection d);
-int rfk_direction_to_dy (RfkDirection d);
-
 #endif
