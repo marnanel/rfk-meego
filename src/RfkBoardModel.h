@@ -16,6 +16,8 @@ class RfkBoardModel: public QObject {
 
   RfkCoords robot_position();
 
+  void move_robot(RfkCoords where);
+
   RfkItemModel* at(RfkCoords position);
 
  private:

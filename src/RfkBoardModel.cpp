@@ -39,6 +39,10 @@ RfkCoords RfkBoardModel::robot_position() {
   return m_robot;
 }
 
+void RfkBoardModel::move_robot(RfkCoords where) {
+  m_robot = where;
+}
+
 RfkItemModel* RfkBoardModel::at(RfkCoords position) {
   if (position.x()<0 || position.y()<0 ||
       position.x()>=board_width || position.y()>=board_height) {
