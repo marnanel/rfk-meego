@@ -6,32 +6,17 @@
 #include "src/RfkDescriptions.h"
 #include "src/RfkCoords.h"
 #include "src/RfkBoardModel.h"
+#include "src/RfkController.h"
+#include "src/RfkDirection.h"
 
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
 
-  RfkBoardModel board;
+  RfkController controller;
 
-  qDebug() << "Hello world!";
-
-  board.dump();
-
-  for (int y=-2; y<20; y++) {
-    QString line;
-
-    for (int x=-2; x<35; x++) {
-      RfkCoords position(x, y);
-
-      if (board.robot_position() == position) {
-	line += "#";
-      } else {
-	RfkItemModel *something = board.at(position);
-	line += something->asChar();
-      }
-    }
-
-    qDebug() << line;
+  for (int i=0; i<10; i++) {
+    controller.move(RFK_DIRECTION_EAST);
   }
 
   return 0;
