@@ -41,7 +41,6 @@ RfkCoords RfkCoords::move(RfkDirection whither,
 
   case RFK_DIRECTION_EAST:
     newX++;
-    newY--;
     break;
 
   case RFK_DIRECTION_SOUTHEAST:
