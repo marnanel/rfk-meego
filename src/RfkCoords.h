@@ -25,6 +25,8 @@ class RfkCoords: public QPair<int,int> {
    */
   const int y();
 
+  uint qHash();
+
   void dump();
 };
 

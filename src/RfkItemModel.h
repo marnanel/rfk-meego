@@ -7,13 +7,21 @@
 class RfkItemModel: public QObject {
 
  public:
-  RfkItemModel(RfkCoords where, QString what);
+  RfkItemModel(QString what);
+
+  RfkItemModel(bool wall);
 
   void dump();
 
+  QString asChar();
+
+  bool is_wall();
+  bool is_space();
+
  private:
-  RfkCoords m_coords;
   QString m_message;
+  bool m_is_wall;
+  bool m_is_space;
 };
 
 #endif

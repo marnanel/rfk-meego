@@ -17,5 +17,17 @@ int main(int argc, char *argv[])
 
   board.dump();
 
+  for (int y=-2; y<20; y++) {
+    QString line;
+
+    for (int x=-2; x<35; x++) {
+      RfkItemModel *something = board.at(RfkCoords(x, y));
+
+      line += something->asChar();
+    }
+
+    qDebug() << line;
+  }
+
   return 0;
 }
