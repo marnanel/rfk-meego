@@ -6,6 +6,14 @@
 #include "RfkItemModel.h"
 #include "RfkDescriptions.h"
 
+typedef enum _RfkContent {
+  RFK_WALL, /* off the edge of the arena */
+  RFK_SPACE,
+  RFK_NON_KITTEN_ITEM,
+  RFK_KITTEN,
+  RFK_ROBOT
+} RfkContent;
+
 class RfkBoardModel: public QObject {
 
  public:
