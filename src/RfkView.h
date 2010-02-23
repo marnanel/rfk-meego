@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QLabel>
+#include <QKeyEvent>
 #include "RfkBoardModel.h"
 
 class RfkView: public QWidget {
@@ -11,6 +12,10 @@ class RfkView: public QWidget {
   RfkView();
 
   void populate(RfkBoardModel &board);
+
+ protected:
+  void keyPressEvent(QKeyEvent * event);
+
  private:
   QLabel* random_character();
   QGridLayout *m_grid;
