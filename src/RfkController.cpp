@@ -50,5 +50,5 @@ void RfkController::dump_board() {
 }
 
 void RfkController::populate(RfkView *view) {
-  qDebug() << "populate";
+  view->populate(m_board);
 }
