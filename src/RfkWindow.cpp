@@ -4,8 +4,19 @@
 
 RfkWindow::RfkWindow() {
 
-  /* maybe divide this up into separate methods */
+  this->insertWidget(0, this->prepare_front_screen());
 
+  /* The board view itself */
+
+  m_view = new RfkView;
+  this->insertWidget(1, m_view);
+}
+
+RfkView* RfkWindow::view() {
+  return m_view;
+}
+
+QWidget* RfkWindow::prepare_front_screen() {
   /* The front screen */
 
   QWidget *buttons = new QWidget;
@@ -20,15 +31,5 @@ RfkWindow::RfkWindow() {
   buttonlayout->addWidget(quit);
   buttons->setLayout(buttonlayout);
 
-  this->insertWidget(0, buttons);
-
-  /* The board view itself */
-
-  m_view = new RfkView;
-  this->insertWidget(1, m_view);
+  return buttons;
 }
-
-RfkView* RfkWindow::view() {
-  return m_view;
-}
-

@@ -12,6 +12,7 @@ class RfkWindow: public QStackedWidget {
 
  private:
   RfkView *m_view;
+  QWidget* prepare_front_screen();
 };
 
 #endif
