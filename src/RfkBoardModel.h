@@ -20,6 +20,8 @@ class RfkBoardModel: public QObject {
 
   RfkItemModel* at(RfkCoords position);
 
+  RfkCoords southeast_corner();
+
  private:
   RfkCoords m_robot;
   RfkItemModel *m_wall;

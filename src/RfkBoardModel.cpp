@@ -51,3 +51,7 @@ RfkItemModel* RfkBoardModel::at(RfkCoords position) {
     return m_layout.value(position, m_space);
   }
 }
+
+RfkCoords RfkBoardModel::southeast_corner() {
+  return RfkCoords(board_width-1, board_height-1);
+}
