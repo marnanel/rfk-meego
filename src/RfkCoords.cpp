@@ -12,11 +12,11 @@ RfkCoords::RfkCoords(int x, int y) {
   second = y;
 }
 
-const int RfkCoords::x() {
+int RfkCoords::x() {
   return first;
 }
 
-const int RfkCoords::y() {
+int RfkCoords::y() {
   return second;
 }
 

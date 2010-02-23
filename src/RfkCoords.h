@@ -22,12 +22,12 @@ class RfkCoords: public QPair<int,int> {
   /**
    * Returns the X coordinate.
    */
-  const int x();
+  int x();
 
   /**
    * Returns the Y coordinate.
    */
-  const int y();
+  int y();
 
   RfkCoords move(RfkDirection whither,
 		 RfkBoardModel *board=NULL);
