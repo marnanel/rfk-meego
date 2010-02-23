@@ -26,11 +26,11 @@ QWidget* RfkWindow::prepare_front_screen() {
 
   QPushButton *help = new QPushButton("Help");
   QPushButton *demo = new QPushButton("Demo");
-  QPushButton *quit = new QPushButton("Quit");
+  QPushButton *play = new QPushButton("Play");
 
   buttonlayout->addWidget(help);
   buttonlayout->addWidget(demo);
-  buttonlayout->addWidget(quit);
+  buttonlayout->addWidget(play);
   buttons->setLayout(buttonlayout);
 
   QWidget *infobox = new QWidget;
