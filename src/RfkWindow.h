@@ -5,10 +5,17 @@
 #include "RfkView.h"
 
 class RfkWindow: public QStackedWidget {
+ Q_OBJECT
+
  public:
   RfkWindow();
 
   RfkView* view();
+
+  void show_message(QString message);
+
+ public slots:
+  void play_game();
 
  private:
   RfkView *m_view;

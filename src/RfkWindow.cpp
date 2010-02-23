@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QMessageBox>
 
 RfkWindow::RfkWindow() {
 
@@ -27,6 +28,11 @@ QWidget* RfkWindow::prepare_front_screen() {
   QPushButton *help = new QPushButton("Help");
   QPushButton *demo = new QPushButton("Demo");
   QPushButton *play = new QPushButton("Play");
+
+  QObject::connect(play,
+		   SIGNAL(clicked()),
+		   this,
+		   SLOT(play_game()) );
 
   buttonlayout->addWidget(help);
   buttonlayout->addWidget(demo);
@@ -56,4 +62,18 @@ QWidget* RfkWindow::prepare_front_screen() {
   front_screen->setLayout(front_screen_layout);
 
   return front_screen;
+}
+
+void RfkWindow::play_game() {
+  this->setCurrentIndex(1);
+}
+
+void RfkWindow::show_message(QString message) {
+
+  /* FIXME Pop up a banner instead under Maemo */
+
+  QMessageBox::warning(this, "robotfindskitten",
+		       message,
+		       QMessageBox::Ok,
+		       QMessageBox::Ok);
 }
