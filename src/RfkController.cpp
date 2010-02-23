@@ -48,3 +48,7 @@ void RfkController::dump_board() {
     qDebug() << line;
   }
 }
+
+void RfkController::populate(RfkView *view) {
+  qDebug() << "populate";
+}

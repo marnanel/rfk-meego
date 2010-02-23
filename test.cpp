@@ -8,16 +8,18 @@
 #include "src/RfkBoardModel.h"
 #include "src/RfkController.h"
 #include "src/RfkDirection.h"
+#include "src/RfkWindow.h"
 
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
 
   RfkController controller;
+  RfkWindow window;
 
-  for (int i=0; i<10; i++) {
-    controller.move(RFK_DIRECTION_EAST);
-  }
+  controller.populate(window.view());
 
-  return 0;
+  window.show();
+
+  return app.exec();
 }
