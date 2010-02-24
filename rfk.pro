@@ -19,3 +19,5 @@ HEADERS += src/RfkView.h
 HEADERS += src/RfkWindow.h
 
 CONFIG += qt
+
+RESOURCES = rfk.qrc

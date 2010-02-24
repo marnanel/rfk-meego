@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QMessageBox>
+#include <QPixmap>
 
 RfkWindow::RfkWindow() {
 
@@ -41,6 +42,7 @@ QWidget* RfkWindow::prepare_front_screen() {
 
   QWidget *infobox = new QWidget;
   QHBoxLayout *infobox_layout = new QHBoxLayout;
+  QLabel *robot = new QLabel();
   QLabel *banner = new QLabel(
     "In this game, you are robot (#). "
     "Your job is to find kitten. This task is complicated "
@@ -49,9 +51,15 @@ QWidget* RfkWindow::prepare_front_screen() {
     "not. The game ends when robotfindskitten. You may move "
     "robot about by tapping on any side of the screen, or with the "
     "arrow keys.");
+  QLabel *kitten = new QLabel();
 
+  robot->setPixmap(QPixmap(":/resources/robot.png"));
   banner->setWordWrap(true);
+  kitten->setPixmap(QPixmap(":/resources/kitten.png"));
+
+  infobox_layout->addWidget(robot);
   infobox_layout->addWidget(banner);
+  infobox_layout->addWidget(kitten);
   infobox->setLayout(infobox_layout);
 
   QWidget *front_screen = new QWidget;
@@ -66,6 +74,10 @@ QWidget* RfkWindow::prepare_front_screen() {
 
 void RfkWindow::play_game() {
   this->setCurrentIndex(1);
+}
+
+void RfkWindow::keyPressEvent(QKeyEvent * event) {
+  /* something */
 }
 
 void RfkWindow::show_message(QString message) {

@@ -14,6 +14,9 @@ class RfkWindow: public QStackedWidget {
 
   void show_message(QString message);
 
+ protected:
+  void keyPressEvent(QKeyEvent *event);
+
  public slots:
   void play_game();
 
