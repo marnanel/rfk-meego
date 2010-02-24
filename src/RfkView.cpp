@@ -49,6 +49,7 @@ void RfkView::populate(RfkBoardModel &board) {
 
       if (m_robot==position) {
 	label = new QLabel("#");
+	label->setAlignment(Qt::AlignCenter);
       } else {
 	RfkItemModel* item = board.at(position);
 
