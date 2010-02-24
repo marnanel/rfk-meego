@@ -6,12 +6,15 @@
 #include "RfkView.h"
 
 class RfkController: public QObject {
+  Q_OBJECT
+
  public:
   RfkController();
 
-  void move(RfkDirection direction);
-
   void populate(RfkView *view);
+
+  public slots:
+  void move(RfkDirection direction);
 
  private:
   RfkBoardModel m_board;

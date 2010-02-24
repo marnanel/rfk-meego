@@ -17,6 +17,11 @@ int main(int argc, char *argv[])
   RfkController controller;
   RfkWindow window;
 
+  QObject::connect(window.view(),
+		   SIGNAL(movementRequest(RfkDirection)),
+		   &controller,
+		   SLOT(move(RfkDirection)) );
+
   controller.populate(window.view());
 
   window.show();
