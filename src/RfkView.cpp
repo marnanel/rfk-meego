@@ -60,4 +60,5 @@ QLabel* RfkView::random_character() {
 
 void RfkView::keyPressEvent(QKeyEvent * event) {
   qDebug() << event->key();
+  event->accept();
 }
