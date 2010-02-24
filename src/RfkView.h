@@ -29,6 +29,7 @@ class RfkView: public QWidget {
  private:
   QHash<int, RfkDirection> m_keymap;
 
+  RfkCoords m_robot;
   QLabel* random_character();
   QGridLayout *m_grid;
 };

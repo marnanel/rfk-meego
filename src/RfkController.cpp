@@ -9,7 +9,6 @@ RfkController::RfkController(RfkBoardModel *board):
 }
 
 void RfkController::move(RfkDirection direction) {
-  qDebug () << "Move.";
 
   RfkCoords robot = m_board->robot_position();
   RfkCoords entered = robot.move(direction, m_board);

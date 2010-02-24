@@ -34,7 +34,7 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
 void RfkView::populate(RfkBoardModel &board) {
 
   RfkCoords southeast = board.southeast_corner();
-  RfkCoords robot = board.robot_position();
+  m_robot = board.robot_position();
 
   for (int x=0; x<=southeast.x(); x++) {
     for (int y=0; y<=southeast.y(); y++) {
@@ -47,7 +47,7 @@ void RfkView::populate(RfkBoardModel &board) {
 	delete old;
       }
 
-      if (robot==position) {
+      if (m_robot==position) {
 	label = new QLabel("#");
       } else {
 	RfkItemModel* item = board.at(position);
@@ -84,8 +84,6 @@ QLabel* RfkView::random_character() {
 
 void RfkView::keyPressEvent(QKeyEvent * event) {
 
-  qDebug() << event->key();
-
   if (m_keymap.contains(event->key())) {
     emit movementRequest(m_keymap[event->key()]);
     event->accept();
@@ -93,5 +91,14 @@ void RfkView::keyPressEvent(QKeyEvent * event) {
 }
 
 void RfkView::robotMoved(RfkCoords where) {
-  qDebug() << "Redraw to move robot";
+
+  QLayoutItem *robot = m_grid->itemAtPosition(m_robot.y(), m_robot.x());
+  QLayoutItem *space = m_grid->itemAtPosition(where.y(), where.x());
+
+  m_grid->removeItem(robot);
+  m_grid->removeItem(space);
+  m_grid->addItem(space, m_robot.y(), m_robot.x());
+  m_grid->addItem(robot, where.y(), where.x());
+  
+  m_robot = where;
 }
