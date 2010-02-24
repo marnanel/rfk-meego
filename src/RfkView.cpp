@@ -2,6 +2,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QDebug>
+#include <QMessageBox>
 
 RfkView::RfkView(): m_grid(new QGridLayout()) {
   this->setLayout(m_grid);
@@ -102,4 +103,14 @@ void RfkView::robotMoved(RfkCoords where) {
   m_grid->addItem(robot, where.y(), where.x());
   
   m_robot = where;
+}
+
+void RfkView::showMessage(QString message) {
+
+  /* FIXME Pop up a banner instead under Maemo */
+
+  QMessageBox::warning(this, "robotfindskitten",
+		       message,
+		       QMessageBox::Ok,
+		       QMessageBox::Ok);
 }

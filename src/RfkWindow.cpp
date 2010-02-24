@@ -3,7 +3,6 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
-#include <QMessageBox>
 #include <QPixmap>
 
 RfkWindow::RfkWindow() {
@@ -78,14 +77,4 @@ void RfkWindow::play_game() {
 
 void RfkWindow::keyPressEvent(QKeyEvent * event) {
   /* something */
-}
-
-void RfkWindow::show_message(QString message) {
-
-  /* FIXME Pop up a banner instead under Maemo */
-
-  QMessageBox::warning(this, "robotfindskitten",
-		       message,
-		       QMessageBox::Ok,
-		       QMessageBox::Ok);
 }

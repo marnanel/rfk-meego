@@ -33,6 +33,11 @@ int main(int argc, char *argv[])
 		   window.view(),
 		   SLOT(robotMoved(RfkCoords)) );
 
+  QObject::connect(&controller,
+		   SIGNAL(somethingDiscovered(QString)),
+		   window.view(),
+		   SLOT(showMessage(QString)) );
+
   window.view()->populate(model);
   window.show();
 

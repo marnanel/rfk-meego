@@ -19,6 +19,7 @@ class RfkView: public QWidget {
 
   public slots:
   void robotMoved(RfkCoords where);
+  void showMessage(QString message);
 
  signals:
   void movementRequest(RfkDirection direction);

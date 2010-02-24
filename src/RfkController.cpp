@@ -19,6 +19,6 @@ void RfkController::move(RfkDirection direction) {
   } else if (touched->is_space()) {
     emit robotMoved(entered);
   } else {
-    qDebug() << touched->message();
+    emit somethingDiscovered(touched->message());
   }
 }

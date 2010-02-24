@@ -12,8 +12,6 @@ class RfkWindow: public QStackedWidget {
 
   RfkView* view();
 
-  void show_message(QString message);
-
  protected:
   void keyPressEvent(QKeyEvent *event);
 
