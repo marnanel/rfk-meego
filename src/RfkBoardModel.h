@@ -9,6 +9,8 @@
 
 class RfkBoardModel: public QObject {
 
+  Q_OBJECT
+
  public:
   RfkBoardModel();
 
@@ -16,11 +18,13 @@ class RfkBoardModel: public QObject {
 
   RfkCoords robot_position();
 
-  void move_robot(RfkCoords where);
-
   RfkItemModel* at(RfkCoords position);
 
   RfkCoords southeast_corner();
+
+  public slots:
+  void robotMoved(RfkCoords where);
+
 
  private:
   RfkCoords m_robot;

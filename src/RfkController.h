@@ -9,15 +9,16 @@ class RfkController: public QObject {
   Q_OBJECT
 
  public:
-  RfkController();
-
-  void populate(RfkView *view);
+  RfkController(RfkBoardModel *board);
 
   public slots:
   void move(RfkDirection direction);
 
+ signals:
+  void robotMoved(RfkCoords newPlace);
+
  private:
-  RfkBoardModel m_board;
+  RfkBoardModel *m_board;
   void dump_board();
 };
 

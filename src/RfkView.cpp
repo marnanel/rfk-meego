@@ -91,3 +91,7 @@ void RfkView::keyPressEvent(QKeyEvent * event) {
     event->accept();
   }
 }
+
+void RfkView::robotMoved(RfkCoords where) {
+  qDebug() << "Redraw to move robot";
+}

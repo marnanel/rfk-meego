@@ -39,7 +39,7 @@ RfkCoords RfkBoardModel::robot_position() {
   return m_robot;
 }
 
-void RfkBoardModel::move_robot(RfkCoords where) {
+void RfkBoardModel::robotMoved(RfkCoords where) {
   m_robot = where;
 }
 
