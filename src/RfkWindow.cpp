@@ -13,7 +13,7 @@ RfkWindow::RfkWindow() {
   m_view = new RfkView;
   this->insertWidget(1, m_view);
 
-  RfkFinale *finale = new RfkFinale;
+  RfkFinale *finale = new RfkFinale(this);
   this->insertWidget(2, finale);
 
   QObject::connect(finale,

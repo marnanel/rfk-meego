@@ -8,10 +8,10 @@ class RfkFinale: public QGraphicsView {
   Q_OBJECT
 
  public:
-  RfkFinale();
+  RfkFinale(QWidget *parent);
 
-  public slots:
-  void play();
+ protected:
+  virtual void focusInEvent(QFocusEvent *event);
 
  signals:
   void finished();
