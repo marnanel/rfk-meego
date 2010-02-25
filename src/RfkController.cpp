@@ -20,5 +20,9 @@ void RfkController::move(RfkDirection direction) {
     emit robotMoved(entered);
   } else {
     emit somethingDiscovered(touched->message());
+
+    if (touched->is_kitten()) {
+      emit discoveredKitten();
+    }
   }
 }

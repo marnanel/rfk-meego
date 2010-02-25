@@ -1,4 +1,5 @@
 #include "RfkWindow.h"
+#include "RfkFinale.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -9,10 +10,16 @@ RfkWindow::RfkWindow() {
 
   this->insertWidget(0, this->prepare_front_screen());
 
-  /* The board view itself */
-
   m_view = new RfkView;
   this->insertWidget(1, m_view);
+
+  RfkFinale *finale = new RfkFinale;
+  this->insertWidget(2, finale);
+
+  QObject::connect(finale,
+		   SIGNAL(finished()),
+		   this,
+		   SLOT(restart()) );
 }
 
 RfkView* RfkWindow::view() {
@@ -71,8 +78,16 @@ QWidget* RfkWindow::prepare_front_screen() {
   return front_screen;
 }
 
+void RfkWindow::restart() {
+  this->setCurrentIndex(0);
+}
+
 void RfkWindow::play_game() {
   this->setCurrentIndex(1);
+}
+
+void RfkWindow::gameWon() {
+  this->setCurrentIndex(2);
 }
 
 void RfkWindow::keyPressEvent(QKeyEvent * event) {

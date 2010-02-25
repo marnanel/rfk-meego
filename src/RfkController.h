@@ -17,6 +17,7 @@ class RfkController: public QObject {
  signals:
   void robotMoved(RfkCoords newPlace);
   void somethingDiscovered(QString message);
+  void discoveredKitten();
 
  private:
   RfkBoardModel *m_board;

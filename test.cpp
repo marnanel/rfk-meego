@@ -38,6 +38,11 @@ int main(int argc, char *argv[])
 		   window.view(),
 		   SLOT(showMessage(QString)) );
 
+  QObject::connect(&controller,
+		   SIGNAL(discoveredKitten()),
+		   &window,
+		   SLOT(gameWon()) );
+
   window.view()->populate(model);
   window.show();
 

@@ -17,6 +17,8 @@ class RfkWindow: public QStackedWidget {
 
  public slots:
   void play_game();
+  void gameWon();
+  void restart();
 
  private:
   RfkView *m_view;
