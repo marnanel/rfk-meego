@@ -9,6 +9,9 @@
  * with Maemo on the Nokia N900 (and later on, MeeGo).
  *
  * \todo Fix the second-round problem.
+ * \todo Add clicking on the board to move.
+ * \todo Add "running" capability to the controller.
+ * \todo Add chequers to the view showing where to click.
  * \todo Add the online help.
  * \todo Add random movement.
  * \todo Add the demo button.
