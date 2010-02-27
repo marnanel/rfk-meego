@@ -6,7 +6,7 @@
 RfkDescriptions::RfkDescriptions()
 {
   /* XXX this string should come from somewhere */
-  QFile file("data/non-kitten-items.rfk");
+  QFile file("resources/non-kitten-items.rfk");
   file.open(QFile::ReadOnly);
   QTextStream descriptions_stream(&file);
 
