@@ -8,7 +8,7 @@ SOURCES += src/RfkItemModel.cpp
 SOURCES += src/RfkView.cpp
 SOURCES += src/RfkWindow.cpp
 SOURCES += src/RfkFinale.cpp
-SOURCES += test.cpp
+SOURCES += src/rfk.cpp
 
 HEADERS += src/RfkApplication.h
 HEADERS += src/RfkBoardModel.h
