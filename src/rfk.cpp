@@ -7,6 +7,13 @@
  * who must find kitten in a field of non-kitten items.
  * This is a generic Qt port, but it is intended to be used
  * with Maemo on the Nokia N900 (and later on, MeeGo).
+ *
+ * \todo Fix the second-round problem.
+ * \todo Add the online help.
+ * \todo Add random movement.
+ * \todo Add the demo button.
+ * \todo Test on Maemo.
+ * \todo Add Maemo-specific functions.
  */
 
 /**
