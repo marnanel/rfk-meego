@@ -40,13 +40,9 @@ void RfkView::populate(RfkBoardModel *board) {
   m_robot = board->robot_position();
 
   if (m_grid->count()) {
-    /* XXX this ought to remove all items from the layout;
-     * why doesn't it?
-     */
     while (QLayoutItem *child = m_grid->takeAt(0)) {
-      delete child;
+      child->widget()->deleteLater();
     }
-    return;
   }
 
   for (int x=0; x<=southeast.x(); x++) {
