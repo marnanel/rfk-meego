@@ -89,6 +89,8 @@ void RfkView::keyPressEvent(QKeyEvent * event) {
   if (m_keymap.contains(event->key())) {
     emit movementRequest(m_keymap[event->key()]);
     event->accept();
+  } else {
+    event->ignore();
   }
 }
 
