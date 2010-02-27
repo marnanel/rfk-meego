@@ -54,7 +54,7 @@ void RfkView::populate(RfkBoardModel *board) {
       } else {
 	RfkItemModel* item = board->at(position);
 
-	if (item->is_space()) {
+	if (item->type() == RFK_ITEM_TYPE_SPACE) {
 	  label = new QLabel();
 	} else {
 	  label = this->random_character();

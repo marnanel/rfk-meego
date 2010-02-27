@@ -14,14 +14,20 @@ void RfkController::move(RfkDirection direction) {
   RfkCoords entered = robot.move(direction, m_board);
   RfkItemModel *touched = m_board->at(entered);
 
-  if (touched->is_wall()) {
+  switch (touched->type()) {
+
+  case RFK_ITEM_TYPE_WALL:
     /* nothing */
-  } else if (touched->is_space()) {
+    break;
+
+  case RFK_ITEM_TYPE_SPACE:
     emit robotMoved(entered);
-  } else {
+    break;
+
+  default:
     emit somethingDiscovered(touched->message());
 
-    if (touched->is_kitten()) {
+    if (touched->type() == RFK_ITEM_TYPE_KITTEN) {
       emit discoveredKitten();
     }
   }

@@ -11,22 +11,20 @@ RfkBoardModel::RfkBoardModel() {
   RfkCoordsFactory factory (board_width, board_height);
   RfkDescriptions descriptions;
   RfkItemModel *kitten =
-    new RfkItemModel("You found kitten!  Way to go, robot!");
+    new RfkItemModel(RFK_ITEM_TYPE_KITTEN,
+		     "You found kitten!  Way to go, robot!");
 
-  m_wall = new RfkItemModel();
-  m_space = new RfkItemModel();
-
-  m_wall->set_is_wall(true);
-  m_space->set_is_space(true);
+  m_wall = new RfkItemModel(RFK_ITEM_TYPE_WALL);
+  m_space = new RfkItemModel(RFK_ITEM_TYPE_SPACE);
 
   m_robot = factory.random_position();
 
-  kitten->set_is_kitten(true);
   m_layout[factory.random_position()] = kitten;
 
   for (int i=0; i < number_of_non_kitten_items; i++) {
     m_layout[factory.random_position()] =
-      new RfkItemModel(descriptions.description());
+      new RfkItemModel(RFK_ITEM_TYPE_NON_KITTEN_ITEM,
+		       descriptions.description());
   }
 }
 
