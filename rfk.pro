@@ -1,3 +1,4 @@
+SOURCES += src/RfkApplication.cpp
 SOURCES += src/RfkBoardModel.cpp
 SOURCES += src/RfkController.cpp
 SOURCES += src/RfkCoords.cpp
@@ -9,6 +10,7 @@ SOURCES += src/RfkWindow.cpp
 SOURCES += src/RfkFinale.cpp
 SOURCES += test.cpp
 
+HEADERS += src/RfkApplication.h
 HEADERS += src/RfkBoardModel.h
 HEADERS += src/RfkController.h
 HEADERS += src/RfkCoordsFactory.h
