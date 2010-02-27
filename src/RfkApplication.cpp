@@ -45,4 +45,5 @@ RfkApplication::RfkApplication(int &argc, char **argv):
 void RfkApplication::recreateModel() {
   delete m_model;
   m_model = new RfkBoardModel();
+  m_window->view()->populate(m_model);
 }

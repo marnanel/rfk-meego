@@ -5,6 +5,8 @@
 #include <QMessageBox>
 
 RfkView::RfkView(): m_grid(new QGridLayout()) {
+
+  m_grid = new QGridLayout;
   this->setLayout(m_grid);
 
   /* arrows */
@@ -37,16 +39,20 @@ void RfkView::populate(RfkBoardModel *board) {
   RfkCoords southeast = board->southeast_corner();
   m_robot = board->robot_position();
 
+  if (m_grid->count()) {
+    /* XXX this ought to remove all items from the layout;
+     * why doesn't it?
+     */
+    while (QLayoutItem *child = m_grid->takeAt(0)) {
+      delete child;
+    }
+    return;
+  }
+
   for (int x=0; x<=southeast.x(); x++) {
     for (int y=0; y<=southeast.y(); y++) {
       RfkCoords position(x,y);
       QLabel *label;
-
-      QLayoutItem *old = m_grid->itemAtPosition(y, x);
-      if (old) {
-	m_grid->removeItem(old);
-	delete old;
-      }
 
       if (m_robot==position) {
 	label = new QLabel("#");
