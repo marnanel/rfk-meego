@@ -18,6 +18,7 @@ HEADERS += src/RfkCoords.h
 HEADERS += src/RfkDescriptions.h
 HEADERS += src/RfkDirection.h
 HEADERS += src/RfkItemModel.h
+HEADERS += src/RfkItemType.h
 HEADERS += src/RfkView.h
 HEADERS += src/RfkWindow.h
 HEADERS += src/RfkFinale.h

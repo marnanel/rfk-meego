@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "RfkCoords.h"
+#include "RfkItemType.h"
 
 /**
  * A model of one item on the board.
