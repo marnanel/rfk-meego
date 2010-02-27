@@ -39,10 +39,8 @@ void RfkView::populate(RfkBoardModel *board) {
   RfkCoords southeast = board->southeast_corner();
   m_robot = board->robot_position();
 
-  if (m_grid->count()) {
-    while (QLayoutItem *child = m_grid->takeAt(0)) {
-      child->widget()->deleteLater();
-    }
+  while (QLayoutItem *child = m_grid->takeAt(0)) {
+    child->widget()->deleteLater();
   }
 
   for (int x=0; x<=southeast.x(); x++) {
