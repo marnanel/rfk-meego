@@ -15,7 +15,7 @@ class RfkView: public QWidget {
  public:
   RfkView();
 
-  void populate(RfkBoardModel &board);
+  void populate(RfkBoardModel *board);
 
   public slots:
   void robotMoved(RfkCoords where);

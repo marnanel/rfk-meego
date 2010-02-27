@@ -32,10 +32,10 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
   m_keymap[Qt::Key_R]        = RFK_DIRECTION_RANDOM;
 }
 
-void RfkView::populate(RfkBoardModel &board) {
+void RfkView::populate(RfkBoardModel *board) {
 
-  RfkCoords southeast = board.southeast_corner();
-  m_robot = board.robot_position();
+  RfkCoords southeast = board->southeast_corner();
+  m_robot = board->robot_position();
 
   for (int x=0; x<=southeast.x(); x++) {
     for (int y=0; y<=southeast.y(); y++) {
@@ -52,7 +52,7 @@ void RfkView::populate(RfkBoardModel &board) {
 	label = new QLabel("#");
 	label->setAlignment(Qt::AlignCenter);
       } else {
-	RfkItemModel* item = board.at(position);
+	RfkItemModel* item = board->at(position);
 
 	if (item->is_space()) {
 	  label = new QLabel();
