@@ -7,6 +7,9 @@
 /**
  * A factory to produce random descriptions
  * of non-kitten items.
+ *
+ * \bug Should have a way to say when it's exhausted.
+ *      (Use a signal, maybe?  Or just have a boolean method)
  */
 class RfkDescriptions: public QObject {
 

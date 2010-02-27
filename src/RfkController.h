@@ -58,6 +58,8 @@ class RfkController: public QObject {
 
   /**
    * Function to dump the board; will be removed.
+   *
+   * \bug Remove this.
    */
   void dump_board();
 };
