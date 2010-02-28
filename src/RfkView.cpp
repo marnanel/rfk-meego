@@ -87,7 +87,8 @@ QLabel* RfkView::random_character() {
 void RfkView::keyPressEvent(QKeyEvent * event) {
 
   if (m_keymap.contains(event->key())) {
-    emit movementRequest(m_keymap[event->key()]);
+    emit movementRequest(m_keymap[event->key()],
+			 event->modifiers() & Qt::ShiftModifier);
     event->accept();
   } else {
     event->ignore();
@@ -108,7 +109,7 @@ void RfkView::mousePressEvent(QMouseEvent *event) {
       RFK_DIRECTION_SOUTHWEST, RFK_DIRECTION_SOUTH, RFK_DIRECTION_SOUTH, RFK_DIRECTION_SOUTHEAST
     };
 
-  emit movementRequest(directions[quadrant]);
+  emit movementRequest(directions[quadrant], false);
   event->accept();
 }
 

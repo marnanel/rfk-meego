@@ -26,9 +26,9 @@ void RfkApplication::recreateModel() {
   m_controller = new RfkController(m_model);
 
   QObject::connect(m_window->view(),
-		   SIGNAL(movementRequest(RfkDirection)),
+		   SIGNAL(movementRequest(RfkDirection, bool)),
 		   m_controller,
-		   SLOT(move(RfkDirection)) );
+		   SLOT(move(RfkDirection, bool)) );
 
   QObject::connect(m_controller,
 		   SIGNAL(robotMoved(RfkCoords)),

@@ -51,8 +51,11 @@ class RfkView: public QWidget {
    * direction.
    *
    * \param direction  The direction in which to move.
+   * \param running    Whether to keep moving
+   *                   until an obstacle is found.
    */
-  void movementRequest(RfkDirection direction);
+  void movementRequest(RfkDirection direction,
+		       bool running);
 
  protected:
   /**
