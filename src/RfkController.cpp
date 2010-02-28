@@ -8,11 +8,15 @@ RfkController::RfkController(RfkBoardModel *board):
   /* ... */
 }
 
-void RfkController::move(RfkDirection direction) {
+void RfkController::move(RfkDirection direction, bool running) {
 
   RfkCoords robot = m_board->robot_position();
   RfkCoords entered = robot.move(direction, m_board);
   RfkItemModel *touched = m_board->at(entered);
+
+  if (running) {
+    qDebug() << "This would be running.";
+  }
 
   switch (touched->type()) {
 

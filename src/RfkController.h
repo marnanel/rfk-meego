@@ -26,7 +26,8 @@ class RfkController: public QObject {
   /**
    * Received when robot is moving in a given direction.
    */
-  void move(RfkDirection direction);
+  void move(RfkDirection direction,
+	    bool running=false);
 
  signals:
   /**
