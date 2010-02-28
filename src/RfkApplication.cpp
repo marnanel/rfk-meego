@@ -15,11 +15,11 @@ RfkApplication::RfkApplication(int &argc, char **argv):
 void RfkApplication::recreateModel() {
 
   if (m_model) {
-    delete m_model;
+    m_model->deleteLater();
   }
 
   if (m_controller) {
-    delete m_controller;
+    m_controller->deleteLater();
   }
 
   m_model = new RfkBoardModel();

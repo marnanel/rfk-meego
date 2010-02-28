@@ -20,7 +20,6 @@ void RfkController::move(RfkDirection direction, bool running) {
     m_timerId = this->startTimer(50);
 
   } else {
-
     this->stopRunning();
     this->moveOneStep(direction);
   }
