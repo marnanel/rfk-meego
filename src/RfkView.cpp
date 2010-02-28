@@ -94,6 +94,23 @@ void RfkView::keyPressEvent(QKeyEvent * event) {
   }
 }
 
+void RfkView::mousePressEvent(QMouseEvent *event) {
+  int quarter_width = this->width() / 4;
+  int quarter_height = this->height() / 4;
+  int quadrant= int(event->x()/quarter_width) +
+    int(event->y()/quarter_height)*4;
+
+  const RfkDirection directions[16] =
+    {
+      RFK_DIRECTION_NORTHWEST, RFK_DIRECTION_NORTH, RFK_DIRECTION_NORTH, RFK_DIRECTION_NORTHEAST,
+      RFK_DIRECTION_WEST,      RFK_DIRECTION_NONE,  RFK_DIRECTION_NONE,  RFK_DIRECTION_EAST,
+      RFK_DIRECTION_WEST,      RFK_DIRECTION_NONE,  RFK_DIRECTION_NONE,  RFK_DIRECTION_EAST,
+      RFK_DIRECTION_SOUTHWEST, RFK_DIRECTION_SOUTH, RFK_DIRECTION_SOUTH, RFK_DIRECTION_SOUTHEAST
+    };
+
+  emit movementRequest(directions[quadrant]);
+}
+
 void RfkView::robotMoved(RfkCoords where) {
 
   QLayoutItem *robot = m_grid->itemAtPosition(m_robot.y(), m_robot.x());

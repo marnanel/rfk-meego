@@ -60,6 +60,11 @@ class RfkView: public QWidget {
    */
   void keyPressEvent(QKeyEvent *event);
 
+  /**
+   * Called when the user taps on the screen.
+   */
+  void mousePressEvent(QMouseEvent *event);
+
  private:
   /**
    * A map of keys to directions.  When the user presses
