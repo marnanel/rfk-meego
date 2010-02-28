@@ -14,7 +14,10 @@ void RfkController::move(RfkDirection direction, bool running) {
   RfkCoords entered = robot.move(direction, m_board);
   RfkItemModel *touched = m_board->at(entered);
 
-  if (running) {
+  if (running &&
+      direction != RFK_DIRECTION_NONE &&
+      direction != RFK_DIRECTION_DEMO &&
+      direction != RFK_DIRECTION_RANDOM) {
     qDebug() << "This would be running.";
   }
 
