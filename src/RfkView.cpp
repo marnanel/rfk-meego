@@ -109,6 +109,7 @@ void RfkView::mousePressEvent(QMouseEvent *event) {
     };
 
   emit movementRequest(directions[quadrant]);
+  event->accept();
 }
 
 void RfkView::robotMoved(RfkCoords where) {
