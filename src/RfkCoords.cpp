@@ -75,3 +75,13 @@ RfkCoords RfkCoords::move(RfkDirection whither,
 
   return RfkCoords(newX, newY);
 }
+
+float RfkCoords::distance(RfkCoords &other) {
+  /* stub */
+  return 0.0;
+}
+
+RfkDirection RfkCoords::bearing(RfkCoords &other) {
+  /* stub */
+  return RFK_DIRECTION_NONE;
+}

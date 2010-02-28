@@ -59,6 +59,24 @@ class RfkCoords: public QPair<int,int> {
   RfkCoords move(RfkDirection whither,
 		 RfkBoardModel *board=NULL);
 
+  /**
+   * Returns the distance between this RfkCoords and another one.
+   *
+   * \param other  The other RfkCoords.
+   * \return   The distance between the two positions.
+   */
+  float distance(RfkCoords &other);
+
+  /**
+   * Returns the bearing between this RfkCoords and another one.
+   *
+   * \param other  The other RfkCoords
+   * \return       The bearing between this RfkCoords and
+   *               the other one.  Will not be RFK_DIRECTION_DEMO
+   *               or RFK_DIRECTION_RANDOM.
+   */
+  RfkDirection bearing(RfkCoords &other);
+
 };
 
 #endif
