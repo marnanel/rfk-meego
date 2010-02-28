@@ -50,8 +50,9 @@ void RfkView::populate(RfkBoardModel *board) {
       QLabel *label;
 
       if (m_robot==position) {
-	label = new QLabel("#");
+	label = new QLabel("<span style=\"color:#FFF\">#</span>");
 	label->setAlignment(Qt::AlignCenter);
+	label->setTextFormat(Qt::RichText);
       } else {
 	RfkItemModel* item = board->at(position);
 
