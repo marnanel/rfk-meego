@@ -6,6 +6,10 @@
  */
 typedef enum _RfkDirection {
   /**
+   * No movement: the identity transformation.
+   */
+  RFK_DIRECTION_NONE,
+  /**
    * Towards the top of the screen.
    */
   RFK_DIRECTION_NORTH,

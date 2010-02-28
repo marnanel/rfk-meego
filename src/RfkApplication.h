@@ -25,8 +25,7 @@ class RfkApplication: public QApplication {
   public slots:
   /**
    * Throws away the existing model and creates a new one.
-   *
-   * \bug Seems not to work properly; robot cannot move correctly.
+   * Also does the same for the controller.
    */
   void recreateModel();
 

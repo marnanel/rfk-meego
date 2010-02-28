@@ -30,6 +30,11 @@ RfkCoords RfkCoords::move(RfkDirection whither,
   int newY = second;
 
   switch (whither) {
+
+  case RFK_DIRECTION_NONE:
+    /* nothing */
+    break;
+
   case RFK_DIRECTION_NORTH:
     newY--;
     break;

@@ -3,9 +3,27 @@
 RfkApplication::RfkApplication(int &argc, char **argv):
   QApplication(argc, argv)
 {
+  m_model = NULL;
+  m_controller = NULL;
+  m_window = new RfkWindow();
+
+  this->recreateModel();
+
+  m_window->show();
+}
+
+void RfkApplication::recreateModel() {
+
+  if (m_model) {
+    delete m_model;
+  }
+
+  if (m_controller) {
+    delete m_controller;
+  }
+
   m_model = new RfkBoardModel();
   m_controller = new RfkController(m_model);
-  m_window = new RfkWindow();
 
   QObject::connect(m_window->view(),
 		   SIGNAL(movementRequest(RfkDirection)),
@@ -37,13 +55,5 @@ RfkApplication::RfkApplication(int &argc, char **argv):
 		   this,
 		   SLOT(recreateModel()) );
 
-  m_window->view()->populate(m_model);
-  m_window->show();
-
-}
-
-void RfkApplication::recreateModel() {
-  delete m_model;
-  m_model = new RfkBoardModel();
   m_window->view()->populate(m_model);
 }
