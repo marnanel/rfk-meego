@@ -139,6 +139,23 @@ void RfkView::showMessage(QString message) {
 
 void RfkView::paintEvent(QPaintEvent *)
 {
+  int quarter_width = this->width()/4;
+  int quarter_height = this->height()/4;
+
   QPainter painter(this);
-  /* XXX here we draw the chequers */
+  painter.fillRect(0, 0, this->width(), this->height(),
+		   Qt::black);
+
+  painter.fillRect(quarter_width, 0,
+		   quarter_width*2, quarter_height,
+		   Qt::darkGray);
+  painter.fillRect(quarter_width, quarter_height*3,
+		   quarter_width*2, quarter_height,
+		   Qt::darkGray);
+  painter.fillRect(0, quarter_height,
+		   quarter_width, quarter_height*2,
+		   Qt::darkGray);
+  painter.fillRect(quarter_width*3, quarter_height,
+		   quarter_width, quarter_height*2,
+		   Qt::darkGray);
 }
