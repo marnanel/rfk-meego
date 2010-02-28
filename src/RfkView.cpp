@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QMessageBox>
+#include <QPainter>
 
 RfkView::RfkView(): m_grid(new QGridLayout()) {
 
@@ -134,4 +135,10 @@ void RfkView::showMessage(QString message) {
 		       message,
 		       QMessageBox::Ok,
 		       QMessageBox::Ok);
+}
+
+void RfkView::paintEvent(QPaintEvent *)
+{
+  QPainter painter(this);
+  /* XXX here we draw the chequers */
 }

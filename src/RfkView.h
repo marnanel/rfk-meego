@@ -68,6 +68,13 @@ class RfkView: public QWidget {
    */
   void mousePressEvent(QMouseEvent *event);
 
+  /**
+   * Called when the widget is being painted.
+   * We add chequers to show where to tap.
+   */
+  void paintEvent(QPaintEvent *);
+
+
  private:
   /**
    * A map of keys to directions.  When the user presses
