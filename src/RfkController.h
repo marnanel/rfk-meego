@@ -53,6 +53,14 @@ class RfkController: public QObject {
  private:
 
   /**
+   * Moves robot one step.
+   *
+   * \param direction  Which way robot is going.
+   * \return  Whether robot actually moved.
+   */
+  bool moveOneStep(RfkDirection direction);
+
+  /**
    * The board we govern.
    */
   RfkBoardModel *m_board;
