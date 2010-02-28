@@ -20,10 +20,6 @@ int RfkCoords::y() {
   return second;
 }
 
-void RfkCoords::dump() {
-  qDebug() << "(" << first << "," << second << ")";
-}
-
 RfkCoords RfkCoords::move(RfkDirection whither,
 			  RfkBoardModel *board) {
   int newX = first;

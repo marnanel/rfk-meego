@@ -59,11 +59,6 @@ class RfkCoords: public QPair<int,int> {
   RfkCoords move(RfkDirection whither,
 		 RfkBoardModel *board=NULL);
 
-  /**
-   * Dumps these coordinates.
-   * \bug Remove this.
-   */
-  void dump();
 };
 
 #endif
