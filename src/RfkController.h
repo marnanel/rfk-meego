@@ -50,7 +50,19 @@ class RfkController: public QObject {
    */
   void discoveredKitten();
 
+ protected:
+  /**
+   * Called every so often by a timer; this is used
+   * to make robot run.
+   */
+  virtual void timerEvent(QTimerEvent *event);
+
  private:
+
+  /**
+   * Stops robot running.
+   */
+  void stopRunning();
 
   /**
    * Moves robot one step.
@@ -64,6 +76,16 @@ class RfkController: public QObject {
    * The board we govern.
    */
   RfkBoardModel *m_board;
+
+  /**
+   * Which way robot is running.
+   */
+  RfkDirection m_runningDirection;
+
+  /**
+   * The ID of the timer used to make robot run.
+   */
+  int m_timerId;
 
   /**
    * Function to dump the board; will be removed.
