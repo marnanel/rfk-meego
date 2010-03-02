@@ -10,7 +10,6 @@
  *
  * \todo Add chequers to the view showing where to click.
  * \todo Add the online help.
- * \todo Add random movement.
  * \todo Add the demo button.
  * \todo Test on Maemo.
  * \todo Add Maemo-specific functions.
