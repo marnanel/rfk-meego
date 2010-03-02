@@ -68,8 +68,32 @@ RfkCoords RfkCoords::move(RfkDirection whither,
     break;
 
   case RFK_DIRECTION_RANDOM:
+    if (board) {
+      RfkDirection candidate;
+      const int compass_size = 8;
+      const RfkDirection directions[compass_size] = {
+	RFK_DIRECTION_NORTH,
+	RFK_DIRECTION_NORTHEAST,
+	RFK_DIRECTION_EAST,
+	RFK_DIRECTION_SOUTHEAST,
+	RFK_DIRECTION_SOUTH,
+	RFK_DIRECTION_SOUTHWEST,
+	RFK_DIRECTION_WEST,
+	RFK_DIRECTION_NORTHWEST
+      };
+      RfkCoords result;
+
+      do {
+	candidate = directions[qrand()%compass_size];
+	result = this->move(candidate);
+      } while (board->at(result)->type()!=RFK_ITEM_TYPE_SPACE);
+
+      return result;
+    }
+    break;
+
   case RFK_DIRECTION_DEMO:
-    /* not handling these yet */
+    /* not handling this yet */
     break;
   }
 
