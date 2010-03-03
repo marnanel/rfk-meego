@@ -41,8 +41,10 @@ class RfkController: public QObject {
    * Sent when something is discovered and we should display
    * a message about it.  The thing that was discovered may
    * be kitten.
+   *
+   * \param what  The discovered object.
    */
-  void somethingDiscovered(QString message);
+  void somethingDiscovered(RfkItemModel *what);
 
   /**
    * Sent when robotfindskitten.  This signal is sent after

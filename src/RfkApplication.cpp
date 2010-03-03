@@ -41,9 +41,9 @@ void RfkApplication::recreateModel() {
 		   SLOT(robotMoved(RfkCoords)) );
 
   QObject::connect(m_controller,
-		   SIGNAL(somethingDiscovered(QString)),
+		   SIGNAL(somethingDiscovered(RfkItemModel*)),
 		   m_window->view(),
-		   SLOT(showMessage(QString)) );
+		   SLOT(showMessage(RfkItemModel*)) );
 
   QObject::connect(m_controller,
 		   SIGNAL(discoveredKitten()),
@@ -54,6 +54,11 @@ void RfkApplication::recreateModel() {
 		   SIGNAL(discoveredKitten()),
 		   this,
 		   SLOT(recreateModel()) );
+
+  QObject::connect(m_controller,
+		   SIGNAL(somethingDiscovered(RfkItemModel*)),
+		   m_model,
+		   SLOT(itemVisited(RfkItemModel*)) );
 
   m_window->view()->populate(m_model);
 }

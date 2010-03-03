@@ -10,7 +10,7 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
   m_grid = new QGridLayout;
   this->setLayout(m_grid);
 
-  /* arrows */
+  // arrows
   m_keymap[Qt::Key_Up]       = RFK_DIRECTION_NORTH;
   m_keymap[Qt::Key_PageUp]   = RFK_DIRECTION_NORTHEAST;
   m_keymap[Qt::Key_Right]    = RFK_DIRECTION_EAST;
@@ -20,7 +20,7 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
   m_keymap[Qt::Key_Left]     = RFK_DIRECTION_WEST;
   m_keymap[Qt::Key_Home]     = RFK_DIRECTION_NORTHWEST;
 
-  /* vi / nethack */
+  // vi / nethack
   m_keymap[Qt::Key_K]        = RFK_DIRECTION_NORTH;
   m_keymap[Qt::Key_U]        = RFK_DIRECTION_NORTHEAST;
   m_keymap[Qt::Key_L]        = RFK_DIRECTION_EAST;
@@ -30,9 +30,13 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
   m_keymap[Qt::Key_H]        = RFK_DIRECTION_WEST;
   m_keymap[Qt::Key_Y]        = RFK_DIRECTION_NORTHWEST;
 
-  /* other */
+  // other
   m_keymap[Qt::Key_D]        = RFK_DIRECTION_DEMO;
   m_keymap[Qt::Key_R]        = RFK_DIRECTION_RANDOM;
+
+  // in the GTK version, ctrl-Q was a secret keystroke
+  // that showed you where kitten was; should we keep
+  // that?
 }
 
 void RfkView::populate(RfkBoardModel *board) {
@@ -136,6 +140,10 @@ void RfkView::showMessage(QString message) {
 		       message,
 		       QMessageBox::Ok,
 		       QMessageBox::Ok);
+}
+
+void RfkView::showMessage(RfkItemModel *item) {
+  this->showMessage(item->message());
 }
 
 void RfkView::paintEvent(QPaintEvent *)

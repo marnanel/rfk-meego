@@ -54,7 +54,7 @@ bool RfkController::moveOneStep(RfkDirection direction) {
     return true;
 
   default:
-    emit somethingDiscovered(touched->message());
+    emit somethingDiscovered(touched);
 
     if (touched->type() == RFK_ITEM_TYPE_KITTEN) {
       emit discoveredKitten();

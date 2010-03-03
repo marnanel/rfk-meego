@@ -45,6 +45,12 @@ class RfkView: public QWidget {
    */
   void showMessage(QString message);
 
+  /**
+   * A request to display the message of a
+   * particular item.
+   */
+  void showMessage(RfkItemModel *item);
+
  signals:
   /**
    * Sent when the user moves robot in a particular
