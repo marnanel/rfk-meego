@@ -1,6 +1,7 @@
 #include <QDebug>
 #include "RfkCoords.h"
 #include "RfkBoardModel.h"
+#include <cmath>
 
 RfkCoords::RfkCoords() {
   first = 0;
@@ -101,11 +102,37 @@ RfkCoords RfkCoords::move(RfkDirection whither,
 }
 
 float RfkCoords::distance(RfkCoords &other) {
-  /* stub */
-  return 0.0;
+  int horizontal = other.first - this->first;
+  int vertical = other.second - this->second;
+  return sqrt(horizontal*horizontal +
+	      vertical*vertical);
 }
 
 RfkDirection RfkCoords::bearing(RfkCoords &other) {
-  /* stub */
-  return RFK_DIRECTION_NONE;
+
+  if (other==*this) {
+    return RFK_DIRECTION_NONE;
+  }
+
+  /* FIXME: Tables similar to this appear in the
+   * code too often; maybe we need to make a standard
+   * function that converts eighths of a circle into
+   * directions.
+   *
+   * (It would also be helpful to make the enum
+   * go anticlockwise anyway.)
+   */
+  const RfkDirection directions[8] = {
+    RFK_DIRECTION_NORTH,
+    RFK_DIRECTION_NORTHWEST,
+    RFK_DIRECTION_WEST,
+    RFK_DIRECTION_SOUTHWEST,
+    RFK_DIRECTION_SOUTH,
+    RFK_DIRECTION_SOUTHEAST,
+    RFK_DIRECTION_EAST,
+    RFK_DIRECTION_NORTHEAST
+  };
+
+  return directions[((int) (8+atan2 (this->first-other.first,
+				     this->second-other.second)*4/M_PI)) % 8];
 }
