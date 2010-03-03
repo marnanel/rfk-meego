@@ -53,7 +53,6 @@ class RfkCoords: public QPair<int,int> {
    *                 If it is omitted for these moves, the result will
    *                 be equal to the original coordinates.
    * \result         The new position.
-   * \bug Demo movement is not yet implemented.
    */
   RfkCoords move(RfkDirection whither,
 		 RfkBoardModel *board=NULL);
