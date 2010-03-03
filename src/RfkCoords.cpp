@@ -94,7 +94,16 @@ RfkCoords RfkCoords::move(RfkDirection whither,
     break;
 
   case RFK_DIRECTION_DEMO:
-    /* not handling this yet */
+    if (board) {
+      RfkCoords target = board->interestingPosition();
+      RfkCoords result = this->move(this->bearing(target));
+
+      if (target==result || board->at(result)->type()==RFK_ITEM_TYPE_SPACE) {
+	return result; // good to go
+      } else {
+	return this->move(RFK_DIRECTION_RANDOM, board);
+      }
+    }
     break;
   }
 
