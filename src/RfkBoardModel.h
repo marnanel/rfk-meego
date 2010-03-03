@@ -53,8 +53,20 @@ class RfkBoardModel: public QObject {
    * The southeasternmost corner of the arena.  Since the arena is
    * rectangular, and the northwesternmost corner is always at (0, 0),
    * we can use this to find out everything about the borders.
+   *
+   * \return The address of the southeasternmost corner.
    */
   RfkCoords southeast_corner();
+
+  /**
+   * The position of something interesting that robot can move
+   * towards in the demo mode.  This will always be the position of
+   * an item (possibly kitten) which has not been previously
+   * visited.
+   *
+   * \return The position of something interesting.
+   */
+  RfkCoords interestingPosition();
 
   public slots:
   /**
@@ -63,6 +75,13 @@ class RfkBoardModel: public QObject {
    * \param where  The new position.
    */
   void robotMoved(RfkCoords where);
+
+  /**
+   * Received when an item is visited.
+   *
+   * \param which  The visted item.
+   */
+  void itemVisited(RfkItemModel *which);
 
  private:
   /**
@@ -87,6 +106,23 @@ class RfkBoardModel: public QObject {
    * A mapping of coordinates to known items.
    */
   QHash<RfkCoords, RfkItemModel*> m_layout;
+
+  /**
+   * If we're moving towards an interesting position, this
+   * holds that position.  Otherwise it's NULL, and we will
+   * have to work out a position if necessary.
+   *
+   * (If we didn't allow this to be NULL for unknown,
+   * and we automatically rescanned when the position became
+   * visited, then the system would lock up when kitten was
+   * the last-visted item.)
+   */
+  RfkCoords *m_interesting;
+
+  /**
+   * A list of items we know to have been visited.
+   */
+  QList<RfkItemModel*> m_visited;
 };
 
 #endif

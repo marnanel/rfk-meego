@@ -16,6 +16,7 @@ RfkBoardModel::RfkBoardModel() {
 
   m_wall = new RfkItemModel(RFK_ITEM_TYPE_WALL);
   m_space = new RfkItemModel(RFK_ITEM_TYPE_SPACE);
+  m_interesting = NULL;
 
   m_robot = factory.random_position();
 
@@ -52,4 +53,21 @@ RfkItemModel* RfkBoardModel::at(RfkCoords position) {
 
 RfkCoords RfkBoardModel::southeast_corner() {
   return RfkCoords(board_width-1, board_height-1);
+}
+
+void RfkBoardModel::itemVisited(RfkItemModel *which) {
+  m_visited.append(which);
+}
+
+RfkCoords RfkBoardModel::interestingPosition() {
+
+  /* Is it cached? */
+  if (m_interesting) {
+    return *m_interesting;
+  }
+
+  /* stub */
+  m_interesting = new RfkCoords(this->southeast_corner());
+
+  return *m_interesting;
 }
