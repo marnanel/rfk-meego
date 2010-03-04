@@ -37,6 +37,11 @@ QWidget* RfkWindow::prepare_front_screen() {
   QPushButton *demo = new QPushButton("Demo");
   QPushButton *play = new QPushButton("Play");
 
+  QObject::connect(help,
+		   SIGNAL(clicked()),
+		   this,
+		   SLOT(showHelp()) );
+
   QObject::connect(play,
 		   SIGNAL(clicked()),
 		   this,
@@ -95,6 +100,11 @@ void RfkWindow::play_game() {
 void RfkWindow::playDemo() {
   this->setCurrentIndex(1);
   emit startDemo();
+}
+
+void RfkWindow::showHelp() {
+  RfkHelp *help = new RfkHelp();
+  help->show();
 }
 
 void RfkWindow::gameWon() {

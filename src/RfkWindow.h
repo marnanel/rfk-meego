@@ -46,6 +46,12 @@ class RfkWindow: public QStackedWidget {
   void playDemo();
 
   /**
+   * Received when the help is requested.
+   * \bug Should probably be private.
+   */
+  void showHelp();
+
+  /**
    * Received when the game is won.
    */
   void gameWon();
