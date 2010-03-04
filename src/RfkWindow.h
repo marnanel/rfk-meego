@@ -40,6 +40,12 @@ class RfkWindow: public QStackedWidget {
   void play_game();
 
   /**
+   * Received when the demo begins.
+   * \bug Should probably be private.
+   */
+  void playDemo();
+
+  /**
    * Received when the game is won.
    */
   void gameWon();
@@ -50,6 +56,12 @@ class RfkWindow: public QStackedWidget {
    * user wants to play again).
    */
   void restart();
+
+ signals:
+  /**
+   * Sent when the demo should begin.
+   */
+  void startDemo();
 
  private:
   /**

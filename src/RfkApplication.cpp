@@ -60,5 +60,10 @@ void RfkApplication::recreateModel() {
 		   m_model,
 		   SLOT(itemVisited(RfkItemModel*)) );
 
+  QObject::connect(m_window,
+		   SIGNAL(startDemo()),
+		   m_controller,
+		   SLOT(startDemo()) );
+
   m_window->view()->populate(m_model);
 }

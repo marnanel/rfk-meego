@@ -4,5 +4,6 @@
         <file>resources/love.png</file>
         <file>resources/kitten.png</file>
         <file>resources/help.html</file>
+        <file>resources/help-board.png</file>
 </qresource>
 </RCC>

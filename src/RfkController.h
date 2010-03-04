@@ -29,6 +29,11 @@ class RfkController: public QObject {
   void move(RfkDirection direction,
 	    bool running=false);
 
+  /**
+   * Received when we should start running the demo.
+   */
+  void startDemo();
+
  signals:
   /**
    * Sent when robot moves to a new place.

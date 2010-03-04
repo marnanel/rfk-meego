@@ -1,4 +1,4 @@
-#include "src/RfkApplication.h"
+#include "RfkApplication.h"
 
 /**
  * \mainpage  robotfindskitten
@@ -9,7 +9,6 @@
  * with Maemo on the Nokia N900 (and later on, MeeGo).
  *
  * \todo Add the online help.
- * \todo Add the demo button.
  * \todo Test on Maemo.
  * \todo Add Maemo-specific functions.
  */

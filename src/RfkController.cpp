@@ -26,7 +26,7 @@ void RfkController::move(RfkDirection direction, bool running) {
 }
 
 void RfkController::stopRunning() {
-  if (m_timerId) {
+  if (m_timerId && m_runningDirection!=RFK_DIRECTION_DEMO) {
     this->killTimer(m_timerId);
     m_timerId = 0;
   }
@@ -61,4 +61,9 @@ bool RfkController::moveOneStep(RfkDirection direction) {
     }
     return false;
   }
+}
+
+void RfkController::startDemo() {
+  m_runningDirection = RFK_DIRECTION_DEMO;
+  m_timerId = this->startTimer(200);
 }

@@ -8,6 +8,7 @@ SOURCES += src/RfkItemModel.cpp
 SOURCES += src/RfkView.cpp
 SOURCES += src/RfkWindow.cpp
 SOURCES += src/RfkFinale.cpp
+SOURCES += src/RfkHelp.cpp
 SOURCES += src/rfk.cpp
 
 HEADERS += src/RfkApplication.h
@@ -22,6 +23,7 @@ HEADERS += src/RfkItemType.h
 HEADERS += src/RfkView.h
 HEADERS += src/RfkWindow.h
 HEADERS += src/RfkFinale.h
+HEADERS += src/RfkHelp.h
 
 CONFIG += qt
 
