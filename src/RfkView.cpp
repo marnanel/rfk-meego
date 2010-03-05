@@ -5,6 +5,49 @@
 #include <QMessageBox>
 #include <QPainter>
 
+/**
+ * A message box that can optionally remove itself
+ * after the user has had time to read it.
+ */
+class TemporaryMessageBox: public QMessageBox {
+public:
+
+  /**
+   * Constructs a simple dialogue box.
+   *
+   * \param message    The message in the dialogue box.
+   * \param temporary  Whether it should close itself
+   *                   when the user has had time to
+   *                   read it.
+   */
+  TemporaryMessageBox(QString message,
+		      bool temporary):
+    QMessageBox(QMessageBox::Information,
+		"robotfindskitten",
+		message) {
+
+    if (temporary) {
+      // Let's assume that people read at around 200wpm.
+      // That's about 3 words per second.
+      // An average word is about five characters plus a space.
+      // So people read at about 21 characters per second.
+      // So let's divide the length by 0.021 to get the number
+      // of milliseconds to display.
+      this->startTimer(message.length() / 0.021);
+    }
+  };
+
+  /**
+   * Closes this dialogue box.
+   *
+   * \param event  Details of the timer event.
+   */
+  void timerEvent(QTimerEvent *event) {
+    this->killTimer(event->timerId());
+    this->close();
+  };
+};
+
 RfkView::RfkView(): m_grid(new QGridLayout()) {
 
   m_grid = new QGridLayout;
@@ -136,10 +179,8 @@ void RfkView::showMessage(QString message) {
 
   /* FIXME Pop up a banner instead under Maemo */
 
-  QMessageBox::warning(this, "robotfindskitten",
-		       message,
-		       QMessageBox::Ok,
-		       QMessageBox::Ok);
+  TemporaryMessageBox info(message, true);
+  info.exec();
 }
 
 void RfkView::showMessage(RfkItemModel *item) {
