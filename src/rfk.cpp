@@ -8,7 +8,6 @@
  * This is a generic Qt port, but it is intended to be used
  * with Maemo on the Nokia N900 (and later on, MeeGo).
  *
- * \todo Add the online help.
  * \todo Test on Maemo.
  * \todo Add Maemo-specific functions.
  */
