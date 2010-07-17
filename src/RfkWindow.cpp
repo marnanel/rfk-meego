@@ -6,8 +6,14 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QPixmap>
+#include <QDebug>
 
 RfkWindow::RfkWindow() {
+
+#ifdef Q_WS_HILDON
+  // Under Maemo, this is a stacked window.
+  this->setAttribute(Qt::WA_Maemo5StackedWindow);
+#endif
 
   this->insertWidget(0, this->prepare_front_screen());
 
@@ -41,7 +47,7 @@ QWidget* RfkWindow::prepare_front_screen() {
 		   SIGNAL(clicked()),
 		   this,
 		   SLOT(showHelp()) );
-
+		   
   QObject::connect(play,
 		   SIGNAL(clicked()),
 		   this,

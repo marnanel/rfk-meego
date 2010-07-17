@@ -5,7 +5,7 @@
 
 const int number_of_non_kitten_items = 17;
 const int board_width = 30;
-const int board_height = 17;
+const int board_height = 16;
 
 RfkBoardModel::RfkBoardModel() {
 

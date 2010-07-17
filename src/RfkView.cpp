@@ -53,6 +53,8 @@ RfkView::RfkView(): m_grid(new QGridLayout()) {
   m_grid = new QGridLayout;
   this->setLayout(m_grid);
 
+  m_grid->setSpacing(0);
+
   // arrows
   m_keymap[Qt::Key_Up]       = RFK_DIRECTION_NORTH;
   m_keymap[Qt::Key_PageUp]   = RFK_DIRECTION_NORTHEAST;
@@ -104,7 +106,7 @@ void RfkView::populate(RfkBoardModel *board) {
 	RfkItemModel* item = board->at(position);
 
 	if (item->type() == RFK_ITEM_TYPE_SPACE) {
-	  label = new QLabel();
+	  label = new QLabel(" ");
 	} else {
 	  label = this->random_character();
 	}

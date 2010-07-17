@@ -6,6 +6,11 @@
 
 RfkHelp::RfkHelp() {
 
+#ifdef Q_WS_HILDON
+  // Under Maemo, this is a stacked window.
+  this->setAttribute(Qt::WA_Maemo5StackedWindow);
+#endif
+
   QFile helpfile(":/resources/help.html");
   helpfile.open(QIODevice::ReadOnly|QIODevice::Text);
   QString help = helpfile.readAll();
