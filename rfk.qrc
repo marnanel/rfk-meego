@@ -3,6 +3,8 @@
         <file>resources/robot.png</file>
         <file>resources/love.png</file>
         <file>resources/kitten.png</file>
+        <file>resources/title.png</file>
+        <file>resources/meegons.png</file>
         <file>resources/help.html</file>
         <file>resources/help-board.png</file>
 </qresource>
