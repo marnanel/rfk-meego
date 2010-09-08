@@ -1,14 +1,13 @@
 #ifndef RFK_FINALE
 #define RFK_FINALE 1
 
-#include <QGraphicsScene>
-#include <QGraphicsView>
+#include <QWidget>
 #include <QTimerEvent>
 
 /**
  * A widget which draws the final scene.
  */
-class RfkFinale: public QGraphicsView {
+class RfkFinale: public QWidget {
   Q_OBJECT
 
  public:
@@ -31,6 +30,11 @@ class RfkFinale: public QGraphicsView {
    */
   virtual void timerEvent(QTimerEvent *event);
 
+  /**
+   * Called when the widget needs repainting.
+   */
+  virtual void paintEvent(QPaintEvent *event);
+
  signals:
   /**
    * Sent when the animation finishes.
@@ -39,65 +43,30 @@ class RfkFinale: public QGraphicsView {
 
  private:
   /**
-   * Hides every sprite.  Used so that the old positions
-   * aren't shown for a split second when the animation
-   * begins again.
+   * Distance of robot from the left-hand side of
+   * the screen.
    */
-  void hideEverything();
+  int m_robotX;
 
   /**
-   * Arranges the sprites ready to start the animation.
+   * Size of the heart.
    */
-  void arrangeForStart();
-
-  /**
-   * Moves robot and kitten one step closer to one another.
-   */
-  void move_together();
-
-  /**
-   * Grows a heart between robot and kitten.
-   */
-  void grow_love();
-
-  /**
-   * Under Maemo, causes the device to vibrate.  Otherwise,
-   * does nothing.
-   *
-   * \bug This is still a stub.
-   */
-  void vibrate();
-
-  /**
-   * Convenience function to centre the heart sprite on the screen.
-   */
-  void centre_love();
-
-  /**
-   * Phase of the animation.  Used by timerEvent() to know which of
-   * its helper methods to call.
-   */
-  int m_phase;
-
-  /**
-   * The scene where the sprites live.
-   */
-  QGraphicsScene m_scene;
+  int m_loveSize;
 
   /**
    * A sprite representing robot.
    */
-  QGraphicsPixmapItem *m_robot;
+  QPixmap m_robot;
 
   /**
    * A sprite representing kitten.
    */
-  QGraphicsPixmapItem *m_kitten;
+  QPixmap m_kitten;
 
   /**
    * A sprite representing the love that robot and kitten share.
    */
-  QGraphicsPixmapItem *m_love;
+  QPixmap m_love;
 };
 
 #endif
