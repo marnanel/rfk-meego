@@ -9,6 +9,7 @@ SOURCES += src/RfkView.cpp
 SOURCES += src/RfkWindow.cpp
 SOURCES += src/RfkFinale.cpp
 SOURCES += src/RfkHelp.cpp
+SOURCES += src/RfkProportionalLayout.cpp
 SOURCES += src/rfk.cpp
 
 HEADERS += src/RfkApplication.h
@@ -24,7 +25,8 @@ HEADERS += src/RfkView.h
 HEADERS += src/RfkWindow.h
 HEADERS += src/RfkFinale.h
 HEADERS += src/RfkHelp.h
+HEADERS += src/RfkProportionalLayout.h
 
-CONFIG += qt
+CONFIG += qt debug
 
 RESOURCES = rfk.qrc

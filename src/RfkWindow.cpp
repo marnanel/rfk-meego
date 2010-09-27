@@ -1,6 +1,7 @@
 #include "RfkWindow.h"
 #include "RfkFinale.h"
 #include "RfkHelp.h"
+#include "RfkProportionalLayout.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -34,6 +35,8 @@ RfkView* RfkWindow::view() {
 }
 
 QWidget* RfkWindow::prepare_front_screen() {
+
+#if 0
   /* The front screen */
 
   QWidget *buttons = new QWidget;
@@ -91,6 +94,58 @@ QWidget* RfkWindow::prepare_front_screen() {
   front_screen_layout->addWidget(infobox);
   front_screen_layout->addWidget(buttons);
   front_screen->setLayout(front_screen_layout);
+#else
+
+  QLabel *backdrop = new QLabel;
+  QWidget *front_screen = new QWidget;
+  ProportionalLayout *layout = new ProportionalLayout;
+  QLabel *banner = new QLabel(
+    "In this game, you are robot (#).  "
+    "Your job is to find kitten.  This task is complicated "
+    "by the existence of various things which are not kitten.  "
+    "Robot must touch items to determine if they are kitten or "
+    "not.  The game ends when robotfindskitten.  You may move "
+    "robot about by tapping on any side of the screen, or with the "
+    "arrow keys.");
+
+  QPushButton *help = new QPushButton("Help");
+  QPushButton *demo = new QPushButton("Demo");
+  QPushButton *play = new QPushButton("Play");
+
+  QObject::connect(help,
+		   SIGNAL(clicked()),
+		   this,
+		   SLOT(showHelp()) );
+		   
+  QObject::connect(play,
+		   SIGNAL(clicked()),
+		   this,
+		   SLOT(play_game()) );
+
+  QObject::connect(demo,
+		   SIGNAL(clicked()),
+		   this,
+		   SLOT(playDemo()) );
+
+  backdrop->setPixmap(QPixmap(":/resources/title.png"));
+  backdrop->setScaledContents(true);
+  banner->setWordWrap(true);
+
+  layout->addItem(new QWidgetItem(backdrop),
+		  0.0, 0.0, 1.0, 1.0);
+  layout->addItem(new QWidgetItem(banner),
+		  0.35, 0.2, 0.65, 0.3);
+  layout->addItem(new QWidgetItem(play),
+		  0.65, 0.5, 0.35, 0.15);
+  layout->addItem(new QWidgetItem(help),
+		  0.65, 0.67, 0.35, 0.15);
+  layout->addItem(new QWidgetItem(demo),
+		  0.65, 0.84, 0.35, 0.15);
+
+  front_screen->setLayout(layout);
+
+#endif
+
 
   return front_screen;
 }
