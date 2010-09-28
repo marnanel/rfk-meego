@@ -36,66 +36,6 @@ RfkView* RfkWindow::view() {
 
 QWidget* RfkWindow::prepare_front_screen() {
 
-#if 0
-  /* The front screen */
-
-  QWidget *buttons = new QWidget;
-  QHBoxLayout *buttonlayout = new QHBoxLayout;
-
-  QPushButton *help = new QPushButton("Help");
-  QPushButton *demo = new QPushButton("Demo");
-  QPushButton *play = new QPushButton("Play");
-
-  QObject::connect(help,
-		   SIGNAL(clicked()),
-		   this,
-		   SLOT(showHelp()) );
-		   
-  QObject::connect(play,
-		   SIGNAL(clicked()),
-		   this,
-		   SLOT(play_game()) );
-
-  QObject::connect(demo,
-		   SIGNAL(clicked()),
-		   this,
-		   SLOT(playDemo()) );
-
-  buttonlayout->addWidget(help);
-  buttonlayout->addWidget(demo);
-  buttonlayout->addWidget(play);
-  buttons->setLayout(buttonlayout);
-
-  QWidget *infobox = new QWidget;
-  QHBoxLayout *infobox_layout = new QHBoxLayout;
-  QLabel *robot = new QLabel();
-  QLabel *banner = new QLabel(
-    "In this game, you are robot (#). "
-    "Your job is to find kitten. This task is complicated "
-    "by the existence of various things which are not kitten. "
-    "Robot must touch items to determine if they are kitten or "
-    "not. The game ends when robotfindskitten. You may move "
-    "robot about by tapping on any side of the screen, or with the "
-    "arrow keys.");
-  QLabel *kitten = new QLabel();
-
-  robot->setPixmap(QPixmap(":/resources/robot.png"));
-  banner->setWordWrap(true);
-  kitten->setPixmap(QPixmap(":/resources/kitten.png"));
-
-  infobox_layout->addWidget(robot);
-  infobox_layout->addWidget(banner);
-  infobox_layout->addWidget(kitten);
-  infobox->setLayout(infobox_layout);
-
-  QWidget *front_screen = new QWidget;
-  QVBoxLayout *front_screen_layout = new QVBoxLayout;
-
-  front_screen_layout->addWidget(infobox);
-  front_screen_layout->addWidget(buttons);
-  front_screen->setLayout(front_screen_layout);
-#else
-
   QLabel *backdrop = new QLabel;
   QWidget *front_screen = new QWidget;
   ProportionalLayout *layout = new ProportionalLayout;
@@ -143,9 +83,6 @@ QWidget* RfkWindow::prepare_front_screen() {
 		  0.65, 0.84, 0.35, 0.15);
 
   front_screen->setLayout(layout);
-
-#endif
-
 
   return front_screen;
 }
