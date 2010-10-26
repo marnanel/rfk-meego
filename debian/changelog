@@ -1,0 +1,73 @@
+rfk (2.00-1) unstable; urgency=low
+
+  * Complete rewrite in Qt.
+  * Added new front screen.
+
+ -- Thomas Thurman <tthurman@gnome.org>  Tue, 26 Oct 2010 12:34:49 +0100
+
+rfk (1.41-1) unstable; urgency=low
+
+  * Added link to bugtracker
+  * Added display name
+  * Fixed debian/control icon
+
+ -- Thomas Thurman <tthurman@gnome.org>  Wed, 17 Feb 2010 22:23:00 -0400
+
+rfk (1.40-1) unstable; urgency=low
+
+  * Screen tapping works more sensibly
+  * Chequers added to screen to show where to tap
+  * Demo mode
+  * Portrait mode support
+  * Help is in-process, not via spawning the browser
+  * Made board slightly larger
+  * Added kitten to front screen
+
+ -- Thomas Thurman <tthurman@gnome.org>  Wed, 17 Feb 2010 21:48:00 -0400
+
+rfk (1.32-1) unstable; urgency=low
+
+  * Added icon to debian/control
+  * Renamed description to be more descriptive
+
+ -- Thomas Thurman <tthurman@gnome.org>  Sun, 30 Aug 2009 12:57:11 -0400
+	
+rfk (1.31-1) unstable; urgency=low
+
+  * Corrected section in debian/control
+  * A couple of non-kitten items use the TM symbol for trademarks
+
+ -- Thomas Thurman <tthurman@gnome.org>  Thu, 27 Aug 2009 16:06:58 +0200
+	
+rfk (1.30-1) unstable; urgency=low
+
+  * Robot can move diagonally
+  * Robot can run until an obstacle is found
+  * Items moved into a separate file
+  * Items converted to UTF-8
+  * Front page added
+  * App menu added
+	
+ -- Thomas Thurman <tthurman@gnome.org>  Tue, 23 Aug 2009 14:03:09 +0200
+	
+rfk (1.20-1) unstable; urgency=low
+
+  * Fix icon
+  * Fix one broken non-kitten item
+  * All files are installed to the same directory
+
+ -- Thomas Thurman <tthurman@gnome.org>  Tue, 27 May 2009 21:33:32 -0400
+
+rfk (1.10-1) unstable; urgency=low
+
+  * Add keypresses
+  * Add closing animation
+
+ -- Thomas Thurman <tthurman@gnome.org>  Sun, 24 May 2009 21:33:32 -0400
+
+rfk (0.02-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Thomas Thurman <tthurman@gnome.org>  Thu, 19 Mar 2009 21:33:32 -0400
+
