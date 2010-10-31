@@ -63,6 +63,11 @@ class RfkWindow: public QStackedWidget {
    */
   void restart();
 
+  /**
+   * Makes kitten close or open its eyes.
+   */
+  void timerEvent(QTimerEvent *event);
+
  signals:
   /**
    * Sent when the demo should begin.
@@ -74,6 +79,26 @@ class RfkWindow: public QStackedWidget {
    * A view of the board.
    */
   RfkView *m_view;
+
+  /**
+   * Kitten's eyes, closed.
+   */
+  QLabel *m_blink;
+
+  /**
+   * ID of the timer that makes kitten blink.
+   */
+  int m_blinkTimer;
+
+  /**
+   * Starts kitten blinking.
+   */
+  void startBlinking();
+
+  /**
+   * Stops kitten blinking.
+   */
+  void stopBlinking();
 
   /**
    * Creates the front screen.  This exists to simplify

@@ -37,7 +37,6 @@ RfkView* RfkWindow::view() {
 QWidget* RfkWindow::prepare_front_screen() {
 
   QLabel *backdrop = new QLabel;
-  QLabel *blink = new QLabel;
   QWidget *front_screen = new QWidget;
   ProportionalLayout *layout = new ProportionalLayout;
   QLabel *banner = new QLabel(
@@ -72,12 +71,15 @@ QWidget* RfkWindow::prepare_front_screen() {
   backdrop->setScaledContents(true);
   banner->setWordWrap(true);
 
-  blink->setPixmap(QPixmap(":/resources/blink.png"));
-  blink->setScaledContents(true);
+  m_blink = new QLabel();
+  m_blink->setPixmap(QPixmap(":/resources/blink.png"));
+  m_blink->setScaledContents(true);
+  m_blink->hide();
+  this->startBlinking();
 
   layout->addItem(new QWidgetItem(backdrop),
 		  0.0, 0.0, 1.0, 1.0);
-  layout->addItem(new QWidgetItem(blink),
+  layout->addItem(new QWidgetItem(m_blink),
 		  0.3, 0.7, 0.1, 0.2);
   layout->addItem(new QWidgetItem(banner),
 		  0.35, 0.2, 0.65, 0.3);
@@ -95,19 +97,23 @@ QWidget* RfkWindow::prepare_front_screen() {
 
 void RfkWindow::restart() {
   this->setCurrentIndex(0);
+  this->startBlinking();
 }
 
 void RfkWindow::play_game() {
   this->setCurrentIndex(1);
+  this->stopBlinking();
 }
 
 void RfkWindow::playDemo() {
   this->setCurrentIndex(1);
+  this->stopBlinking();
   emit startDemo();
 }
 
 void RfkWindow::showHelp() {
   RfkHelp *help = new RfkHelp();
+  // don't stop blinking just for that
   help->show();
 }
 
@@ -118,3 +124,29 @@ void RfkWindow::gameWon() {
 void RfkWindow::keyPressEvent(QKeyEvent * event) {
   /* something */
 }
+
+void RfkWindow::startBlinking() {
+  m_blinkTimer = this->startTimer(5000);
+}
+
+void RfkWindow::stopBlinking() {
+  this->killTimer(m_blinkTimer);
+  m_blinkTimer = 0;
+  m_blink->hide();
+}
+
+void RfkWindow::timerEvent(QTimerEvent *event) {
+
+  this->killTimer(m_blinkTimer);
+
+  if (m_blink->isHidden()) {
+    // eyes are open; close them
+    m_blink->show();
+    m_blinkTimer = this->startTimer(100);
+  } else {
+    // eyes are closed; open them
+    m_blink->hide();
+    m_blinkTimer = this->startTimer(5000);
+  }
+}
+
