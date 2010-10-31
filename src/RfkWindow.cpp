@@ -37,6 +37,7 @@ RfkView* RfkWindow::view() {
 QWidget* RfkWindow::prepare_front_screen() {
 
   QLabel *backdrop = new QLabel;
+  QLabel *blink = new QLabel;
   QWidget *front_screen = new QWidget;
   ProportionalLayout *layout = new ProportionalLayout;
   QLabel *banner = new QLabel(
@@ -71,8 +72,13 @@ QWidget* RfkWindow::prepare_front_screen() {
   backdrop->setScaledContents(true);
   banner->setWordWrap(true);
 
+  blink->setPixmap(QPixmap(":/resources/blink.png"));
+  blink->setScaledContents(true);
+
   layout->addItem(new QWidgetItem(backdrop),
 		  0.0, 0.0, 1.0, 1.0);
+  layout->addItem(new QWidgetItem(blink),
+		  0.3, 0.7, 0.1, 0.2);
   layout->addItem(new QWidgetItem(banner),
 		  0.35, 0.2, 0.65, 0.3);
   layout->addItem(new QWidgetItem(play),
