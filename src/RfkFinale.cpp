@@ -1,4 +1,5 @@
 #include "RfkFinale.h"
+#include "RfkVibrate.h"
 #include <QDebug>
 #include <QPainter>
 
@@ -43,6 +44,10 @@ void RfkFinale::timerEvent(QTimerEvent *event) {
       m_loveSize++;
 
       if (m_loveSize >= m_love.width()) {
+	RfkVibrate vibration;
+
+	vibration.vibrate();
+
 	this->killTimer(event->timerId());
 	this->startTimer(2000);
       }

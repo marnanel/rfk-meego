@@ -10,6 +10,7 @@ SOURCES += RfkWindow.cpp
 SOURCES += RfkFinale.cpp
 SOURCES += RfkHelp.cpp
 SOURCES += RfkProportionalLayout.cpp
+SOURCES += RfkVibrate.cpp
 SOURCES += rfk.cpp
 
 HEADERS += RfkApplication.h
@@ -25,6 +26,7 @@ HEADERS += RfkView.h
 HEADERS += RfkWindow.h
 HEADERS += RfkFinale.h
 HEADERS += RfkHelp.h
+HEADERS += RfkVibrate.h
 HEADERS += RfkProportionalLayout.h
 
 CONFIG += qt debug
