@@ -8,5 +8,6 @@
         <file>resources/meegons.png</file>
         <file>resources/help.html</file>
         <file>resources/help-board.png</file>
+        <file>resources/non-kitten-items.rfk</file>
 </qresource>
 </RCC>

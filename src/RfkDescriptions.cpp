@@ -6,7 +6,7 @@
 RfkDescriptions::RfkDescriptions()
 {
   /* XXX this string should come from somewhere */
-  QFile file("resources/non-kitten-items.rfk");
+  QFile file(":/resources/non-kitten-items.rfk");
   file.open(QFile::ReadOnly);
   QTextStream descriptions_stream(&file);
 
@@ -17,7 +17,7 @@ RfkDescriptions::RfkDescriptions()
   }
 
   while (!descriptions_stream.atEnd()) {
-    m_descriptions->append(descriptions_stream.readLine());
+    m_descriptions->append(descriptions_stream.readLine()); 
   }
 
   /* XXX check API; do we need to close explicitly
