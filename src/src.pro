@@ -31,5 +31,7 @@ HEADERS += RfkProportionalLayout.h
 
 CONFIG += qt debug
 
+TARGET = rfk
+
 RESOURCES = rfk.qrc
 
