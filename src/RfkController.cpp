@@ -33,6 +33,8 @@ void RfkController::stopRunning() {
 }
 
 void RfkController::timerEvent(QTimerEvent *event) {
+  Q_UNUSED(event);
+
   if (!this->moveOneStep(m_runningDirection)) {
     this->stopRunning();
   }

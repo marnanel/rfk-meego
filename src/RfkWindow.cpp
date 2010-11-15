@@ -122,6 +122,8 @@ void RfkWindow::gameWon() {
 }
 
 void RfkWindow::keyPressEvent(QKeyEvent * event) {
+  Q_UNUSED(event);
+
   /* something */
 }
 
@@ -136,6 +138,8 @@ void RfkWindow::stopBlinking() {
 }
 
 void RfkWindow::timerEvent(QTimerEvent *event) {
+
+  Q_UNUSED(event);
 
   this->killTimer(m_blinkTimer);
 

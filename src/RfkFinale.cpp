@@ -16,6 +16,8 @@ RfkFinale::RfkFinale(QWidget *parent):
 
 void RfkFinale::focusInEvent(QFocusEvent* event) {
 
+  Q_UNUSED(event);
+
   this->m_robotX = 0;
   this->m_loveSize = 0;
   this->startTimer(10);
@@ -62,6 +64,8 @@ void RfkFinale::timerEvent(QTimerEvent *event) {
 }
 
 void RfkFinale::paintEvent(QPaintEvent *event) {
+
+  Q_UNUSED(event);
 
   QPainter painter(this);
   QBrush black(Qt::SolidPattern);
