@@ -28,6 +28,8 @@ RfkWindow::RfkWindow() {
 		   SIGNAL(finished()),
 		   this,
 		   SLOT(restart()) );
+
+  this->setWindowTitle("robotfindskitten");
 }
 
 RfkView* RfkWindow::view() {
@@ -114,7 +116,7 @@ void RfkWindow::playDemo() {
 void RfkWindow::showHelp() {
   RfkHelp *help = new RfkHelp();
   // don't stop blinking just for that
-  help->show();
+  help->showMaximized();
 }
 
 void RfkWindow::gameWon() {
