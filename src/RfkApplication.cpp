@@ -1,15 +1,20 @@
 #include "RfkApplication.h"
+#include <QTime>
 
 RfkApplication::RfkApplication(int &argc, char **argv):
   QApplication(argc, argv)
 {
+
   m_model = NULL;
   m_controller = NULL;
   m_window = new RfkWindow();
 
+  // make the random numbers random
+  qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+
   this->recreateModel();
 
-  m_window->show();
+  m_window->showMaximized();
 }
 
 void RfkApplication::recreateModel() {
