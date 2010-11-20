@@ -1,3 +1,5 @@
+TEMPLATE = app
+
 SOURCES += RfkApplication.cpp
 SOURCES += RfkBoardModel.cpp
 SOURCES += RfkController.cpp
@@ -31,7 +33,7 @@ HEADERS += RfkProportionalLayout.h
 
 CONFIG += qt debug
 
-TARGET = rfk
-
 RESOURCES = rfk.qrc
+
+TARGET = rfk
 
