@@ -1,0 +1,21 @@
+Name: rfk
+Summary: robotfindskitten
+Version: 2.0.0
+Release: 1
+Group: Amusements/Games
+License: GPLv2.0
+URL: http://robotfindskitten.org
+Sources:
+    - "%{name}-%{version}.tar.bz2"
+Description: The story of a robot who must find a kitten
+
+PkgConfigBR:
+    - QtCore >= 4.6.0
+    - QtGui
+Configure: none
+Builder:
+    qmake
+Files:
+    - "%{_bindir}/rfk"
+    - "%{_datadir}/applications/*.desktop"
+    - "%{_datadir}/icons/*.png"
